@@ -1,8 +1,19 @@
-# Course-Nabber
+# Course-Snagger
 
-1. Run `pip install -r modules.txt` in the root directory to install the necessary modules.
-2. Open `src/passwords.py` and update the appropriate fields.
-3. Run `python src/core.py` to execute the program.
+Firstly, lets setup a virtual environment that will contain all of the necessary modules
+
+1. Run 'module load python3/3.4'
+2. Run 'virtualenv myenv'
+3. Run 'source myenv/bin/activate'
+
+Lastly, install all of the necessary modules
+
+4. Run 'make'
+
+
+
+
+
 
 
 http://studentcode.illinois.edu/ specifies the rules and regulations regarding automated scraping and registration
