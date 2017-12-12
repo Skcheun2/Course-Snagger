@@ -1,5 +1,8 @@
 # Course-Snagger
 
+This will check every 2 seconds.
+
+
 Firstly, lets setup a virtual environment that will contain all of the necessary modules
 
 1. Run 'module load python3/3.4'
@@ -8,9 +11,10 @@ Firstly, lets setup a virtual environment that will contain all of the necessary
 
 Lastly, install all of the necessary modules
 
-4. Run 'make'
+4. Run 'make core'
 
 
+If you can install the fbchat module (manually or pip) then Run 'make core1" instead (I couldn't find a way to install this module.  I looked everywhere).
 
 
 

@@ -7,7 +7,7 @@ from pytz import timezone
 import smtplib
 import cookielib
 #import mechanize
-#import fbchat
+import fbchat
 #from selenium import webdriver
 #from selenium.webdriver.common.keys import Keys
 #from getpass import getpass
@@ -55,11 +55,37 @@ def check_open(dep,num,crn):
 
 #delete multiline comment and the stuff below
 
-#delete the next four lines
-sendemail = raw_input("Email (Sender):")
-emailpass = raw_input('Email Password: ')
-receiver = raw_input('Recipient: ')
-details = {'email':sendemail,'password':emailpass,'recipient':receiver}
+fbchatresp= raw_input("Do you want notification through email, fbchat or both (input one of the choices): ") 
+
+
+if fbchatresp.lower() == 'both'
+	
+    #fbusername = raw_input("FB Username: ")
+    #fbpass = raw_input("FB Password: ")
+    #sendemail = raw_input("Email:")
+    #emailpass = raw_input('Email Password: ')
+    #receiver = raw_input('Recipient: ')
+    #name = raw_input('Name (to look you up on fb chat): ')
+    #details = {'email':sendemail,'password':emailpass,'recipient':receiver,'fbuser':fbusername,'fbpass':fbpass,'name':name}
+if fbchatresp.lower() == 'fbchat'
+	
+    #fbusername = raw_input("FB Username: ")
+    #fbpass = raw_input("FB Password: ")
+    #name = raw_input('Name (to look you up on fb chat): ')
+    #details = {'fbuser':fbusername,'fbpass':fbpass,'name':name}
+
+if fbchatresp.lower() == 'email'
+    #sendemail = raw_input("Email:")
+    #emailpass = raw_input('Email Password: ')
+    #receiver = raw_input('Recipient: ')
+    #details = {'email':sendemail,'password':emailpass,'recipient':receiver}
+    
+
+
+details = {'email':sendemail,'password':emailpass,'recipient':receiver,'fbuser':fbusername,'fbpass':fbpass,'name':name}
+details['name'] = details['name'].lower()
+
+
 num_of_courses = int(raw_input('Number of courses to check: '))
 #num_of_courses = 1
 
@@ -128,9 +154,21 @@ while True:
             if check_open(lst_of_course_depts[x],lst_of_course_subjects[x],lst_of_course_crn[x]):
                 if course_open ==0:                
 		    course_open = 1
-                    sendEmail("Your class has opened.")
-                    sendEmail(str(lst_of_course_crn[x] ))
+                    
+                   
+                    if fbchatresp.lower() == 'both':
+                        sendEmail("Your class has opened.")
+                        sendEmail(str(lst_of_course_crn[x] ))
+                        sendFBmessage("Your class has opened.")
+                        sendFBmessage(str(lst_of_course_crn[x] ))
 
+                    if fbchatresp.lower() == 'fbchat':
+                        sendFBmessage("Your class has opened.")
+                        sendFBmessage(str(lst_of_course_crn[x] ))
+                    if fbchatresp.lower() == 'email':
+                        sendEmail("Your class has opened.")
+                        sendEmail(str(lst_of_course_crn[x] ))
+                
                     #k = getWebPage(lst_of_course_crn[x],lst_of_course_depts[x],username,password)
             else:
                 if course_open == 1:
