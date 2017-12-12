@@ -68,19 +68,17 @@ num_of_courses = int(raw_input('Number of courses to check: '))
 
 
 lst_of_course_depts = []
+lst_of_course_subjects = []
+lst_of_course_crn = []
 for x in range(num_of_courses):
     dept = raw_input('Department: ')
     lst_of_course_depts.append(dept)
-
-lst_of_course_subjects = []
-for x in range(num_of_courses):
     subj = raw_input('Course Number: ')
     lst_of_course_subjects.append(subj)
-
-lst_of_course_crn = []
-for x in range(num_of_courses):
     course_crn = raw_input('Course crn: ') 
     lst_of_course_crn.append(course_crn)
+
+    
 
 
 #fb message
